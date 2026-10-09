@@ -1,0 +1,50 @@
+/* Exemple de CUBE  */
+
+.class1 {
+  width: 200px;
+  height: 200px;
+  margin: 100px auto;
+  perspective: 800px;
+}
+
+
+.cube {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  transform: rotateX(-25deg) rotateY(35deg);
+}
+
+/* Style commun aux 6 faces */
+.cube > div {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  border: 2px solid white;
+  box-sizing: border-box;
+  opacity: 0.9;
+}
+
+/* Position de chaque face : rotation puis écartement de 100px */
+.avant   { background: steelblue; transform: rotateY(0deg)   translateZ(100px); }
+.arriere { background: crimson;   transform: rotateY(180deg) translateZ(100px); }
+.droite  { background: seagreen;  transform: rotateY(90deg)  translateZ(100px); }
+.gauche  { background: orange;    transform: rotateY(-90deg) translateZ(100px); }
+.haut    { background: purple;    transform: rotateX(90deg)  translateZ(100px); }
+.bas     { background: goldenrod; transform: rotateX(-90deg) translateZ(100px); }
+
+
+/* .cube {
+  animation: tourner 8s linear infinite;
+}
+
+@keyframes tourner {
+  from { transform: rotateX(-25deg) rotateY(0deg); }
+  to   { transform: rotateX(-25deg) rotateY(360deg); }
+} */

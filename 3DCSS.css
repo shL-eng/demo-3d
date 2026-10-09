@@ -1,0 +1,189 @@
+.class0 > div {
+    width : 150px;
+    height: 100px;
+    background : blueviolet;
+    color : white;
+    display : flex;
+    justify-content : center;
+    align-items: center;
+}
+
+
+
+
+.rotx {
+    transform : rotatex(45deg);
+    /*transform : rotatex(90deg);*/
+    /*transform : rotatex(180deg);*/
+}
+
+
+
+
+.roty {
+    transform : rotatey(45deg);
+    /* transform : rotatey(90deg); */
+    /*transform : rotatey(180deg);*/
+}
+
+
+
+
+.rotz {
+    transform : rotatez(45deg);
+    /*transform : rotatez(90deg);*/
+    /*transform : rotatez(180deg);*/
+}
+
+
+
+
+
+/*ATTENTION !! L'ordre des transformation peut influancer le resultat */
+
+.order {   
+transform : rotatex(20deg) rotatey(30deg) rotatez(18deg);
+/* transform :  rotatez(18deg) rotatey(30deg)  rotatex(20deg); */
+}
+
+
+
+
+.trans3d {
+  transform: translate3d(50px, 20px, 30px);
+}
+
+
+
+
+.scl3d {
+  transform: scale3d(0.5, 0.5, 0.5); 
+  /* transform: scale3d(2, 2, 2); */
+
+    /* transform: scale(0.5);  */
+}
+
+
+
+
+.sans_persp {
+    transform: rotateY(45deg);
+}
+
+
+
+
+.avec_persp {
+    transform: perspective(500px) rotateY(45deg);
+}
+
+
+
+
+/*   transform-style: preserve-3d; */
+.class1 {
+  width: 200px;
+  height: 200px;
+  margin: 100px auto;
+  perspective: 800px;              
+}
+
+
+/* Exemple de CUBE  */
+
+.cube {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;    
+  transform: rotateX(-25deg) rotateY(35deg);
+}
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  border: 2px solid white;
+  opacity: 0.9;
+}
+
+/*  On tourne Chaque face , puis on l'écarte de 100px (la moitié du cube) */
+.avant   { background: steelblue;   transform: rotateY(0deg)   translateZ(100px); }
+.arriere { background: crimson;     transform: rotateY(180deg) translateZ(100px); }
+.droite  { background: seagreen;    transform: rotateY(90deg)  translateZ(100px); }
+.gauche  { background: orange;      transform: rotateY(-90deg) translateZ(100px); }
+.haut    { background: purple;      transform: rotateX(90deg)  translateZ(100px); }
+.bas     { background: goldenrod;   transform: rotateX(-90deg) translateZ(100px); }
+
+
+/* .cube {
+  animation: tourner 8s linear infinite;
+}
+
+@keyframes tourner {
+  from { transform: rotateX(-25deg) rotateY(0deg); }
+  to   { transform: rotateX(-25deg) rotateY(360deg); }
+} */
+
+
+/* Exemple de Flip Card */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: #f0f0f0;
+  font-family: Arial, sans-serif;
+}
+
+/* 1. La scène : donne la profondeur */
+.class2 {
+  width: 250px;
+  height: 350px;
+  perspective: 1000px;
+}
+
+/* 2. La carte : le parent qui tourne */
+.carte {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;      /* les faces gardent leur 3D */
+  transition: transform 0.8s;
+}
+
+/* 3. Au survol, la carte pivote de 180° */
+.scene:hover .carte {
+  transform: rotateY(180deg);
+}
+
+/* 4. Les deux faces */
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 15px;
+  backface-visibility: hidden;       /* cache la face quand elle est de dos */
+}
+
+.recto {
+  background: steelblue;
+}
+
+.verso {
+  background: crimson;
+  transform: rotateY(180deg);        /* déjà retournée au départ */
+}
+
+
